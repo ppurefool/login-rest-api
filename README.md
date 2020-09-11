@@ -20,7 +20,7 @@ New Project
   Version: (0.0.1-SNAPSHOT)
   Name: (login-rest-api)
   Description: (Demo project for Spring Boot)
-  Package: (com.solupia.loginrestapi)
+  Package: (io.kwangsik.loginrestapi)
 
  Dependencies
   Spring Boot

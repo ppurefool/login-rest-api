@@ -13,15 +13,15 @@ server:
     session:
       cookie:
         name: HUNOSS_TOKEN
-security:
-  ignore-patterns: >
-    /favicon.ico
-  permit-all-patterns: >
-    /api/token/login,
-    /api/agent/login,
-    /api/token/login/*,
-    /api/agent/login/*,
-    /api/agent/redirect/*
-solupia:
+kwangsik:
+  security:
+    ignore-patterns: >
+      /favicon.ico
+    permit-all-patterns: >
+      /api/token/login,
+      /api/agent/login,
+      /api/token/login/*,
+      /api/agent/login/*,
+      /api/agent/redirect/*
   language:
     code: ko

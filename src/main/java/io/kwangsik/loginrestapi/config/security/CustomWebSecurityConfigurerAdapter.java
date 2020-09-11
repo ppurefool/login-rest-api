@@ -18,9 +18,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
-    @Value("${security.ignore-patterns}")
+    @Value("${kwangsik.security.ignore-patterns}")
     private String[] ignorePatterns;
-    @Value("${security.permit-all-patterns}")
+    @Value("${kwangsik.security.permit-all-patterns}")
     private String[] permitAllPatterns;
     @Value("${kwangsik.login.jwtSecret:KwangsikLoginJwtSecret}")
     private String loginJwtSecret;

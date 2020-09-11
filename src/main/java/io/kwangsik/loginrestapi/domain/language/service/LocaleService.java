@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class LocaleService {
     private final LanguageService service;
 
-    @Value("${solupia.language.code}")
+    @Value("${kwangsik.language.code}")
     private String languageCode;
 
     public String get(String messageKey) {

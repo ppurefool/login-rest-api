@@ -19,11 +19,11 @@ import java.io.IOException;
 
 @Slf4j
 public class CustomTokenAuthenticationFilter extends OncePerRequestFilter {
-    private String solupiaLoginJwtSecret;
-    private UserDetailsService userDetailsService;
+    private final String loginJwtSecret;
+    private final UserDetailsService userDetailsService;
 
-    public CustomTokenAuthenticationFilter(String newSolupiaLoginJwtSecret, UserDetailsService newUserDetailsService) {
-        this.solupiaLoginJwtSecret = newSolupiaLoginJwtSecret;
+    public CustomTokenAuthenticationFilter(String newLoginJwtSecret, UserDetailsService newUserDetailsService) {
+        this.loginJwtSecret = newLoginJwtSecret;
         this.userDetailsService = newUserDetailsService;
     }
 
@@ -36,8 +36,8 @@ public class CustomTokenAuthenticationFilter extends OncePerRequestFilter {
 
         if (CheckUtil.isNotBlank(xAuthToken)) {
             log.debug("$$ AuthTokenFilter.doFilterInternal() - xAuthToken: {}", xAuthToken);
-            if (JwtUtil.validate(xAuthToken, this.solupiaLoginJwtSecret)) {
-                username = JwtUtil.get(xAuthToken, this.solupiaLoginJwtSecret);
+            if (JwtUtil.validate(xAuthToken, this.loginJwtSecret)) {
+                username = JwtUtil.get(xAuthToken, this.loginJwtSecret);
                 log.debug("$$ AuthTokenFilter.doFilterInternal() - username: {}", username);
                 userDetails = getUserDetails(username);
                 if (null != userDetails) {
