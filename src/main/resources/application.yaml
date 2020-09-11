@@ -17,6 +17,9 @@ security:
   ignore-patterns: >
     /favicon.ico
   permit-all-patterns: >
+    /api/token/login,
+    /api/agent/login,
+    /api/token/login/*,
     /api/agent/login/*,
     /api/agent/redirect/*
 solupia:

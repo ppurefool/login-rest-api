@@ -1,11 +1,13 @@
 package io.kwangsik.loginrestapi.domain.agent.login.dto;
 
 import io.kwangsik.loginrestapi.domain.user.dto.UserVO;
+import io.kwangsik.loginrestapi.util.ConstantUtil;
 import lombok.Getter;
 import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.function.Consumer;
 
 @ToString(doNotUseGetters = true)
 @Getter
@@ -27,10 +29,10 @@ public class LoginOne {
     private final String lastChangeLoginId;
     private final Integer loginFailCount;
     private final String lockYn;
-    private final String token;
+    private String token;
 
-    public LoginOne(UserVO vo, String token) {
-        this.loginId = vo.getLoginId();
+    public LoginOne(String newLoginId, UserVO vo) {
+        this.loginId = newLoginId;
         this.employeeNumber = vo.getEmployeeNumber();
         this.userName = vo.getUserName();
         this.phoneNumber = vo.getPhoneNumber();
@@ -47,6 +49,10 @@ public class LoginOne {
         this.lastChangeLoginId = vo.getLastChangeLoginId();
         this.loginFailCount = vo.getLoginFailCount();
         this.lockYn = vo.getLockYn();
-        this.token = token;
+    }
+
+    public LoginOne updateToken(String newToken) {
+        this.token = newToken;
+        return this;
     }
 }
